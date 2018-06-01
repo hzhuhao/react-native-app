@@ -60,11 +60,13 @@ const router = (...props) => (
             getSceneStyle={getSceneStyle}
             backAndroidHandler={onBackPress}
     >
+
         <Modal
             hideNavBar
             transitionConfig={() => ({ screenInterpolator: CardStackStyleInterpolator.forFadeFromBottomAndroid })}
         >
             <Stack hideNavBar headerMode='screen' key="root">
+
                 <Scene
                     title='登录'
                     key="LoginModal"

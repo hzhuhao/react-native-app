@@ -39,6 +39,11 @@ let storage = new Storage({
     defaultExpires: null,
     enableCache: true,
 });
+
+import RNFetchBlob from 'react-native-fetch-blob';
+
+global.RNFetchBlob = RNFetchBlob;
+
 global.storage = storage;
 // axios
 import axios from 'axios';
