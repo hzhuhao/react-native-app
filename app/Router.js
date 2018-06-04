@@ -25,7 +25,7 @@ import TabIcon from './Component/TabIcon';
 // import TabMiddleIcon from './Component/TabMiddleIcon'
 
 import Current from './Pages/Current/Current';
-
+import Main from './Pages/Main/Main';
 import Detail from './Pages/Current/Detail';
 import History from './Pages/History/History';
 import Login from './Pages/Login/Login';
@@ -60,19 +60,24 @@ const router = (...props) => (
             getSceneStyle={getSceneStyle}
             backAndroidHandler={onBackPress}
     >
-
         <Modal
             hideNavBar
             transitionConfig={() => ({ screenInterpolator: CardStackStyleInterpolator.forFadeFromBottomAndroid })}
         >
             <Stack hideNavBar headerMode='screen' key="root">
 
+                <Stack key="historyDetail"
+                       title={'详情'}
+                >
+                    <Scene back={true} titleStyle={{ alignSelf:'center'}} renderRightButton={Btn}   title="详情" component={Detail} key="historyDetail_1"/>
+                </Stack>
+
+
                 <Scene
                     title='登录'
                     key="LoginModal"
                     component={Login}
                     gesturesEnabled={false}
-                    hideNavBar
                 />
                 <Tabs
                     key="tabbar"        // 唯一标识
@@ -84,39 +89,37 @@ const router = (...props) => (
                     icon={TabIcon}      // 自定义Icon显示方式
                     lazy={true}         // 是否默认渲染tabbar
                     tabBarPosition={'bottom'}       // tabbar在顶部还是底部，iOS默认顶部，安卓默认顶部
-                    activeBackgroundColor='white'   // 选中tabbar的背景色
-                    inactiveBackgroundColor='white' // 未选中tabbar的背景色
-                    activeTintColor='#4ECBFC'       // 选中tabbar图标的颜色
-                    inactiveTintColor='#aaa'        // 未选中tabbar图标的颜色
+                    activeBackgroundColor='#FFF'   // 选中tabbar的背景色
+                    inactiveBackgroundColor='#FFF' // 未选中tabbar的背景色
+                    activeTintColor='#132EEC'       // 选中tabbar图标的颜色
+                    inactiveTintColor='#ADADAD'        // 未选中tabbar图标的颜色
                 >
                     <Stack key="Current"
-                           title={'首页'}
-                           image={Images.ShiTu}
-                           selectedImage={Images.ShiTu}
+                           title={'当前通知'}
+                           image={Images.Current}
+                           selectedImage={Images.Current}
                     >
-                        <Scene back={false} titleStyle={{ alignSelf:'center'}} component={Current} key="Current_key"/>
+                        <Scene back={false} titleStyle={{ alignSelf:'center'}} component={Current} key="Current_key"
+
+                        />
                     </Stack>
                     <Stack key='History'
-                           title={'历史'}
-                           image={Images.Gank}
-                           selectedImage={Images.Gank}
+                           title={'历史通知'}
+                           image={Images.History}
+                           selectedImage={Images.History}
                     >
                         <Scene titleStyle={{ alignSelf:'center'}} component={History} key="History_key"/>
                     </Stack>
                     <Stack key='Main'
-                           title={'我的'}
+                           title={'用户设置'}
                            image={Images.Main}
                            selectedImage={Images.Main}
                     >
-                        <Scene titleStyle={{ alignSelf:'center'}} component={History} key="Main_key"/>
+                        <Scene titleStyle={{ alignSelf:'center'}} component={Main} key="Main_key"/>
                     </Stack>
                 </Tabs>
 
-                <Stack key="historyDetail"
-                title={'详情'}
-                >
-                <Scene back={true} titleStyle={{ alignSelf:'center'}} renderRightButton={Btn}   title="详情" component={Detail} key="historyDetail_1"/>
-                </Stack>
+
 
             </Stack>
 
@@ -128,7 +131,7 @@ export default router;
 
 const styles = StyleSheet.create({
     tabBarStyle: {
-        backgroundColor: '#eee',
-        height:49,
+        backgroundColor: '#FFF',
+        height:73,
     },
 });

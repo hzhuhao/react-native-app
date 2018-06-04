@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import ItemList from './Component/ItemList';
 
-export default class Test1 extends Component {
+export default class Current extends Component {
     constructor(props) {
         super(props);
         this.state = {};

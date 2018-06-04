@@ -4,10 +4,10 @@
 
 // 统一管理项目中的图片，格式按照下面的来
 const Images =  {
-    ShiTu:require('./images/ShiTu.png'),
-    Gank: require('./images/Gank.png'),
     Main: require('./images/Main.png'),
-    Logo: require('./images/logo.png')
+    Logo: require('./images/logo.png'),
+    Current: require('./images/Current.png'),
+    History: require('./images/History.png')
 };
 
 export default Images;

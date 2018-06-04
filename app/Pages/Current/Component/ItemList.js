@@ -17,7 +17,8 @@ class ItemList extends Component {
             page:0,
             size: 13,
             total:null
-        }
+        };
+        this.onPress = this.onPress.bind(this);
     }
     componentDidMount() {
       this.onHeaderRefresh();
@@ -90,7 +91,16 @@ class ItemList extends Component {
 
     renderCell = (info: Object) => {
         console.log(info);
-        return <ListRow title={info.item.name} onPress={() => this.onPress(info.item.id)} />
+      //  return <ListRow title={info.item.name} onPress={() => this.onPress(info.item.id)} />
+        return  <ListRow
+            title={info.item.name}
+            style={styles.itemList}
+            detail={'React Native enables you to build world-class application experiences on native platforms using a consistent developer experience based on JavaScript and React'}
+            onPress={() => this.onPress(info.item.id)}
+            titlePlace='top'
+            titleStyle={{ color:'#363636',fontSize:FONT_SIZE(19) }}
+            detailStyle={{ color:'#9B9B9B',fontSize:FONT_SIZE(14) }}
+        />
     }
 
     onPress = (info) => {
@@ -111,10 +121,10 @@ class ItemList extends Component {
                     onHeaderRefresh={this.onHeaderRefresh}
                     onFooterRefresh={this.onFooterRefresh}
                     // 可选
-                    footerRefreshingText= '玩命加载中 >.<'
+                    footerRefreshingText = '玩命加载中 >.<'
                     footerFailureText = '我擦嘞，居然失败了 =.=!'
-                    footerNoMoreDataText= '-我是有底线的-'
-                    footerEmptyDataText= '-好像什么东西都没有-'
+                    footerNoMoreDataText = '-我是有底线的-'
+                    footerEmptyDataText = '-好像什么东西都没有-'
                 />
             </View>
         )
@@ -124,12 +134,13 @@ class ItemList extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: Platform.OS === 'ios' ? 20 : 0,
+        marginTop: Platform.OS === 'ios' ? 0 : 0,
     },
     title: {
         fontSize: 18,
-        height: 84,
         textAlign: 'center'
+    },
+    itemList: {
     }
 });
 
