@@ -103,7 +103,7 @@ class ItemList extends Component {
     onPress = (info) => {
       //  alert(info);
         console.log(info);
-        Actions.currentDetail({ 'id': info});
+        Actions.historyDetail({ 'id': info});
     }
     render() {
         console.log('render scene')

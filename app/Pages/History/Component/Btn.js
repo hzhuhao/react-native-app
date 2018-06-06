@@ -7,7 +7,7 @@
  */
 
 import React, {PureComponent} from 'react'
-import {View, Text } from 'react-native'
+import {View, Text, StyleSheet, TouchableOpacity, Image, PixelRatio} from 'react-native'
 
 
 

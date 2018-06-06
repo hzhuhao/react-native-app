@@ -12,9 +12,15 @@ import {View, Text } from 'react-native'
 
 
 export default () =>{
+    onPressAdd = () => {
+        Actions.currentDetail();
+    };
     return (
         <View>
-            <Text></Text>
+            <Text
+                style={{ paddingRight:15 }}
+                onPress={this.onPressAdd}
+            >完成提交</Text>
         </View>
     );
 };

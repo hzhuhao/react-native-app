@@ -26,11 +26,15 @@ import TabIcon from './Component/TabIcon';
 
 import Current from './Pages/Current/Current';
 import Main from './Pages/Main/Main';
-import Detail from './Pages/Current/Detail';
+import CurrentDetail from './Pages/Current/CurrentDetail';
+import HistoryDetail from './Pages/History/HistoryDetail';
+
+import addRes from './Pages/Current/addRes';
 import History from './Pages/History/History';
 import Login from './Pages/Login/Login';
 
 import Btn from './Pages/Current/Component/Btn';
+import addBtn from './Pages/Current/Component/addBtn';
 
 const reducerCreate = params => {
     const defaultReducer = new Reducer(params);
@@ -65,14 +69,6 @@ const router = (...props) => (
             transitionConfig={() => ({ screenInterpolator: CardStackStyleInterpolator.forFadeFromBottomAndroid })}
         >
             <Stack hideNavBar headerMode='screen' key="root">
-
-                <Stack key="historyDetail"
-                       title={'详情'}
-                >
-                    <Scene back={true} titleStyle={{ alignSelf:'center'}} renderRightButton={Btn}   title="详情" component={Detail} key="historyDetail_1"/>
-                </Stack>
-
-
                 <Scene
                     title='登录'
                     key="LoginModal"
@@ -99,9 +95,7 @@ const router = (...props) => (
                            image={Images.Current}
                            selectedImage={Images.Current}
                     >
-                        <Scene back={false} titleStyle={{ alignSelf:'center'}} component={Current} key="Current_key"
-
-                        />
+                        <Scene back={false} titleStyle={{ alignSelf:'center'}} component={Current} key="Current_key"/>
                     </Stack>
                     <Stack key='History'
                            title={'历史通知'}
@@ -119,10 +113,16 @@ const router = (...props) => (
                     </Stack>
                 </Tabs>
 
-
-
+                <Stack key="historyDetail" title={'详情'}>
+                    <Scene back={true} titleStyle={{ alignSelf:'center'}} renderRightButton={Btn}   title="详情" component={HistoryDetail} key="historyDetail_1"/>
+                </Stack>
+                <Stack key="currentDetail" title={'详情'}>
+                    <Scene back={true} titleStyle={{ alignSelf:'center'}} renderRightButton={Btn}   title="详情" component={CurrentDetail} key="currentDetail_1"/>
+                </Stack>
+                <Stack key="addResources">
+                    <Scene back={true} titleStyle={{ alignSelf:'center'}} renderRightButton={addBtn} component={addRes} key="addResources_1"/>
+                </Stack>
             </Stack>
-
         </Modal>
     </Router>
 );
